@@ -33,6 +33,8 @@ module.exports = {
             loader: 'css-loader',
             query: {
               sourceMap: true
+              module: true,
+              localIdentName: '[local]___[hash:base64:5]'
             }
           },
           {
