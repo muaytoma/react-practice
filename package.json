@@ -1,0 +1,26 @@
+{
+  "name": "react-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yaempioy/react-practice.git"
+  },
+  "author": "Kitti Boonchan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yaempioy/react-practice/issues"
+  },
+  "homepage": "https://github.com/yaempioy/react-practice#readme",
+  "dependencies": {
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1"
+  },
+  "devDependencies": {
+    "webpack": "^2.1.0-beta.21"
+  }
+}
