@@ -1,5 +1,6 @@
-const webpack = require('webpack')
-const path = require('path')
+const webpack = require('webpack');
+const path = require('path');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   devtool: 'eval',
@@ -12,7 +13,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         loaders: [
           'babel-loader'
@@ -32,7 +33,7 @@ module.exports = {
           {
             loader: 'css-loader',
             query: {
-              sourceMap: true
+              sourceMap: true,
               module: true,
               localIdentName: '[local]___[hash:base64:5]'
             }
@@ -43,9 +44,13 @@ module.exports = {
               outputStyle: 'expanded',
               sourceMap: true
             }
-          }
+          },
+          'postcss-loader'
         ]
       }
     ]
+  },
+  postcss: function () {
+    return [autoprefixer];
   }
-}
+};

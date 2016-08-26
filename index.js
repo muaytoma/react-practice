@@ -5,7 +5,9 @@ import styles from './styles.scss'
 export default class HelloWorld extends Component {
   render() {
     return (
-      <h1>Hello World Pinto..</h1>
+      <div>
+        <h1 className={styles.greeting}>Hello World Pinto..</h1>        
+      </div>
     )
   }
 }
