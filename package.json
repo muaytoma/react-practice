@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "npm-run-all --parallel start-dev-api start-dev-ui",
     "start-dev-api": "json-server --watch api/db.json --routes api/routes.json --port 5000",
     "start-dev-ui": "webpack-dev-server --hot --inline"
   },
