@@ -1,19 +1,13 @@
 import React,  {Component} from 'react'
 import {render} from 'react-dom'
-import styles from './styles.scss'
+import {Router, Route, IndexRoute, browserHistory} from 'react-router'
+import {App, Home, Pages} from './components'
 
-export default class HelloWorld extends Component {
-  render() {
-    let {fullName, birthDate} = this.props
-    return (
-      <div>
-        <h1 className={styles.greeting}>My name is {fullName}</h1>
-        <time dateTime={birthDate.toISOString()}>
-          {birthDate.toLocaleDateString()}
-        </time>
-      </div>
-    )
-  }
-}
-
-render(<HelloWorld fullName="Kitti Boonchan" birthDate={new Date()} />, document.getElementById('app'))
+render((
+  <Router history={browserHistory}>
+    <Route path='/' component={App}>
+      <IndexRoute component={Home} />
+      <Route path='pages' component={Pages} />
+    </Route>
+  </Router>
+), document.getElementById('app'))
