@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 export default class Pages extends Component {
   render() {
     return (
+      // table is Global-css
       <table className='table'>
         <thead>
             <tr>
