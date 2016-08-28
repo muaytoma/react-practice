@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import fetch from 'isomorphic-fetch'
 import {Pages} from '../components'
+import {API_ENDPOINT} from '../constants'
 
 export default class PagesContainer extends Component {
 
@@ -10,7 +11,7 @@ export default class PagesContainer extends Component {
   }
 
   componentDidMount() {
-    fetch('http://127.0.0.1:5000/api/v1/pages')
+    fetch(API_ENDPOINT.PAGES_ENDPOINT)
       .then((response) => response.json())
       .then(pages => (this.setState({pages})))
   }
