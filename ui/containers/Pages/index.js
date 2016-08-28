@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import fetch from 'isomorphic-fetch'
-import {Pages} from '../components'
-import {API_ENDPOINT} from '../constants'
+import {PagesList} from '../../components'
+import {API_ENDPOINT} from '../../constants'
 
 export default class PagesContainer extends Component {
 
@@ -24,7 +24,7 @@ export default class PagesContainer extends Component {
     let {pages} = this.state
     return (
       <div>
-        <Pages pages={pages} onReloadPages={this.onReloadPages} />
+        <PagesList pages={pages} onReloadPages={this.onReloadPages} />
       </div>
     )
   }

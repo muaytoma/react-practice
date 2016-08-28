@@ -1,7 +1,8 @@
 import React, {PropTypes} from 'react'
-import Page from './Page'
+import Page from '../Page/Page'
 
-const Pages = ({pages, onReloadPages}) => {
+const PagesList = ({pages, onReloadPages}) => {
+  console.log('PPP');
   return (
     <div>
       <button className='button' onClick={() => onReloadPages()}>
@@ -32,9 +33,9 @@ const Pages = ({pages, onReloadPages}) => {
   )
 }
 
-Pages.propTypes = {
+PagesList.propTypes = {
   pages: PropTypes.array.isRequired,
   onReloadPages: PropTypes.func.isRequired
 }
 
-export default Pages
+export default PagesList

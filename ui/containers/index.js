@@ -1,1 +1,1 @@
-export PagesContainer from './Pages.container'
+export PagesContainer from './Pages'
