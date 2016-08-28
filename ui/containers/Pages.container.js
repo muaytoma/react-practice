@@ -10,16 +10,22 @@ export default class PagesContainer extends Component {
     pages: []
   }
 
-  componentDidMount() {
+  onReloadPages = () => {
     fetch(API_ENDPOINT.PAGES_ENDPOINT)
       .then((response) => response.json())
       .then(pages => (this.setState({pages})))
   }
 
+  componentDidMount() {
+    this.onReloadPages()
+  }
+
   render() {
     let {pages} = this.state
     return (
-      <Pages pages={pages} />
+      <div>
+        <Pages pages={pages} onReloadPages={this.onReloadPages} />
+      </div>
     )
   }
 
