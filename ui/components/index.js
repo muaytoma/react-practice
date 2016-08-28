@@ -1,3 +1,3 @@
 export App from './App/App'
 export Home from './Home'
-export {PagesList} from './Pages'
+export {PagesList, ShowPage} from './Pages'
