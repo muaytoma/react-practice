@@ -3,7 +3,7 @@ const path = require('path');
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
-  devtool: 'eval',
+  devtool: 'source-map',
   entry: [
     './ui/theme/elements.scss',
     './ui/index.js',
