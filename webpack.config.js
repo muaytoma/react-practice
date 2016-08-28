@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const DashboardPlugin = require('webpack-dashboard/plugin')
 const path = require('path');
 const autoprefixer = require('autoprefixer');
 
@@ -63,5 +64,8 @@ module.exports = {
         target: 'http://127.0.0.1:5000'
       }
     }
-  }
+  },
+  plugins: [
+    new DashboardPlugin()
+  ]
 };
