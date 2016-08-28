@@ -1,28 +1,14 @@
-import React, {Component} from 'react'
-import fetch from 'isomorphic-fetch'
+import React, {Component, PropTypes} from 'react'
 import Page from './Page'
 
 export default class Pages extends Component {
 
-  state = {
-    pages: []
-  }
-
-  // componentWillMount() {
-  //   console.log('Pinto WillMount');
-  // }
-
-  componentDidMount() {
-    fetch('http://127.0.0.1:5000/api/v1/pages')
-      .then((response) => response.json())
-      .then((pages) => {
-        console.log('DisMount', pages);
-        this.setState({pages})
-      })
+  static propTypes = {
+    pages: PropTypes.array.isRequired
   }
 
   render() {
-    console.log('Pages Render', this.state);
+    let {pages} = this.props
     return (
       // table is Global-css
       <table className='table'>
@@ -35,7 +21,7 @@ export default class Pages extends Component {
           </thead>
           <tbody>
             {
-              this.state.pages.map((page) => {
+              pages.map((page) => {
                 return (
                   <Page
                   key={page.id}
