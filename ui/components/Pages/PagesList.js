@@ -2,7 +2,6 @@ import React, {PropTypes} from 'react'
 import Page from '../Page/Page'
 
 const PagesList = ({pages, onReloadPages}) => {
-  console.log('PPP');
   return (
     <div>
       <button className='button' onClick={() => onReloadPages()}>
