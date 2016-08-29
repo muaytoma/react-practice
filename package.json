@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm-run-all --parallel start-dev-api start-dev-ui",
     "start-dev-api": "json-server --watch api/db.json --routes api/routes.json --port 5000",
-    "start-dev-ui": "webpack-dashboard -- webpack-dev-server --hot --inline"
+    "start-dev-ui": "webpack-dashboard -- webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -37,6 +37,7 @@
     "json-server": "^0.8.18",
     "node-sass": "^3.8.0",
     "postcss-loader": "^0.10.1",
+    "react-hot-loader": "^3.0.0-beta.2",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
     "webpack": "^2.1.0-beta.21",

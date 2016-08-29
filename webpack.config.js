@@ -6,8 +6,13 @@ const autoprefixer = require('autoprefixer');
 module.exports = {
   devtool: 'source-map',
   entry: [
+    //ho-loader path
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?http://localhost:8080',
+    //Indentify webpack-dev-server is hot module replacement only
+    'webpack/hot/only-dev-server',
     './ui/theme/elements.scss',
-    './ui/index.js',
+    './ui/index.js'
   ],
   output: {
     publicPath: '/static/',
@@ -57,15 +62,18 @@ module.exports = {
   postcss: function () {
     return [autoprefixer];
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new DashboardPlugin()
+  ],
   devServer: {
+    hot: true,
+    inline: false,
     historyApiFallback: true,
     proxy: {
       '/api/*': {
         target: 'http://127.0.0.1:5000'
       }
     }
-  },
-  plugins: [
-    new DashboardPlugin()
-  ]
+  }
 };
