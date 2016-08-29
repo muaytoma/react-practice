@@ -1,2 +1,2 @@
-export PagesContainer from './Pages/PagesContainer'
-export ShowPageContainer from './Pages/ShowPageContainer'
+export PagesContainer from './Pages/Pages.container'
+export ShowPageContainer from './Pages/ShowPage.container'

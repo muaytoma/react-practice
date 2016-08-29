@@ -1,2 +1,2 @@
-export PagesList from './PagesList'
-export ShowPage from './ShowPage'
+export Pages from './Pages.component'
+export ShowPage from './ShowPage.component'
