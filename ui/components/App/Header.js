@@ -11,7 +11,7 @@ export default class Header extends Component {
             to={{pathname: '/'}}
             className={styles['brand']}
             >
-            Babel Coder Wiki!
+            Black Sheep Coder
           </Link>
           <ul className={styles['menu']}>
             <li className={styles['menu__item']}>

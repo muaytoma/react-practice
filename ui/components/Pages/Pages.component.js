@@ -7,6 +7,7 @@ const PagesList = ({pages, onReloadPages}) => {
       <button className='button' onClick={() => onReloadPages()}>
         Reload Pages
       </button>
+      <hr />
       <table className='table'>
         <thead>
             <tr>

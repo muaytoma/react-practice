@@ -5,7 +5,7 @@ export default class Home extends Component {
   render() {
     return (
       <h2 className={styles['title']}>
-        Welcome to PintoCoder Wiki!
+        Welcome to Black Sheep Coder!
       </h2>
     )
   }
