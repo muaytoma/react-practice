@@ -1,19 +1,21 @@
-import React, {Component} from 'react'
-import fetch from 'isomorphic-fetch'
+import React, {Component, PropTypes} from 'react'
+import { connect } from 'react-redux'
 import {Pages} from '../../components'
-import {API_ENDPOINT} from '../../constants'
+import {loadPages} from '../../actions'
 
-export default class PagesContainer extends Component {
+class PagesContainer extends Component {
 
-  // Default State
-  state = {
-    pages: []
+  static propTypes = {
+    pages: PropTypes.array.isRequired,
+    onLoadPages: PropTypes.func.isRequired
+  }
+
+  shouldComponentUpdate(nextProps) {
+    return this.props.pages !== nextProps.pages
   }
 
   onReloadPages = () => {
-    fetch(API_ENDPOINT.PAGES_ENDPOINT)
-      .then((response) => response.json())
-      .then(pages => (this.setState({pages})))
+    this.props.onLoadPages()
   }
 
   componentDidMount() {
@@ -21,12 +23,29 @@ export default class PagesContainer extends Component {
   }
 
   render() {
-    let {pages} = this.state
+    let {pages} = this.props
     return (
-      <div>
-        <Pages pages={pages} onReloadPages={this.onReloadPages} />
-      </div>
+      <Pages pages={pages} onReloadPages={this.onReloadPages} />
     )
   }
-
 }
+
+const mapStateToProps = (state) => ({
+  pages: state.pages
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  onLoadPages() {
+    /**
+     * Call dispath for execute reducer
+     * loadPages function will return promise from isomorphic-fetch API data
+     * need to improve redux dispatch can work with promise
+     */
+    dispatch(loadPages())
+  }
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PagesContainer)
