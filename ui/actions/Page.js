@@ -1,15 +1,14 @@
-export const loadPages = () => ({
+import fetch from 'isomorphic-fetch'
+import {API_ENDPOINT} from '../constants'
+
+const receivePages = (pages) => ({
   type: 'RECEIVE_PAGES',
-  pages: [
-    {
-      "id": 1,
-      "title": "test page#1",
-      "content": "TEST PAGE CONTENT"
-    },
-    {
-      "id": 2,
-      "title": "test page#2",
-      "content": "TEST PAGE CONTENT 2"
-    }
-  ]
+  pages
 })
+
+
+export const loadPages = () => (
+  fetch(API_ENDPOINT.PAGES_ENDPOINT)
+    .then((response) => response.json())
+    .then(pages => receivePages(pages))
+)
