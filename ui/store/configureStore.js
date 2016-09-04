@@ -1,20 +1,23 @@
-import {createStore} from 'redux'
+import {createStore, applyMiddleware} from 'redux'
+import thunk from 'redux-thunk'
+import {apiMiddleware} from 'redux-api-middleware'
 import rootReducer from '../reducers'
 
-
-const promise = (store) => {
-  const next = store.dispatch
-  return (action) => {
-    if(typeof action.then === 'function')
-      return action.then(next)
-    return next(action)
-  }
-}
+/**
+ * Notice:
+ * Redux Middleware is overlap function
+ * store => next => action
+ */
+// const thunk = (store) => (next) => (action) =>
+//   typeof action === 'function' ?
+//     action(store.dispatch, store.getState) : next(action)
 
 export default () => {
-  const store = createStore(rootReducer)
-
-  store.dispatch = promise(store)
+  const middlewares = [thunk, apiMiddleware]
+  const store = createStore(
+    rootReducer,
+    applyMiddleware(...middlewares)
+  )
 
   if(module.hot) {
     /**
@@ -23,8 +26,9 @@ export default () => {
      * by current state (other reducers) still remain
      */
     module.hot.accept('../reducers', () => {
-      const nextRootReducer = require('../reducers')
-      store.replaceReducer(nextRootReducer)
+      System.import('../reducers').then(nextRootReducer =>
+        store.replaceReducer(nextRootReducer.default)
+      )
     })
   }
 
