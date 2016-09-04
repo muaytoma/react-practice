@@ -1,1 +1,1 @@
-export {loadPages} from './Page'
+export {loadPages, loadPage} from './Page'
