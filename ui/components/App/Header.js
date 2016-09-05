@@ -24,9 +24,9 @@ const Header = () => {
             </li>
             <li className={styles['menu__item']}>
               <Link
-                to={{pathname: '/pages/new'}}
+                to={{pathname: '/griddle'}}
                 className={styles['menu__link']}>
-                New Page
+                Griddle
               </Link>
             </li>
             <li className={styles['menu__item']}>

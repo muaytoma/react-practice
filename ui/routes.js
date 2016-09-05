@@ -4,7 +4,8 @@ import { syncHistoryWithStore } from 'react-router-redux'
 import {
   PagesContainer,
   ShowPageContainer,
-  CreatePageContainer
+  CreatePageContainer,
+  GriddleContainer
 } from './containers'
 import {App, Home} from './components'
 
@@ -18,6 +19,7 @@ export default (store, history) => {
           <route path='new' component={CreatePageContainer} />
           <route path=':id' component={ShowPageContainer} />
         </route>
+        <route path='/griddle' component={GriddleContainer} />
       </Route>
     </Router>
   )
