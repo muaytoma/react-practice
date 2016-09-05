@@ -7,9 +7,7 @@ export default class App extends Component {
     return (
       <div>
         <Header />
-        // container Global-css from elements.scss
         <div className='container'>
-          // content Local-css from App.csss
           <div className={styles['content']}>
             {this.props.children}
           </div>

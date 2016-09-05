@@ -1,6 +1,7 @@
 import {createStore, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
 import {apiMiddleware} from 'redux-api-middleware'
+import { routerMiddleware } from 'react-router-redux'
 import createLogger from 'redux-logger'
 import rootReducer from '../reducers'
 
@@ -13,8 +14,9 @@ import rootReducer from '../reducers'
 //   typeof action === 'function' ?
 //     action(store.dispatch, store.getState) : next(action)
 
-export default () => {
-  const middlewares = [thunk, apiMiddleware]
+export default (history) => {
+  // makes can use push funcion in action for change route URL
+  const middlewares = [thunk, apiMiddleware, routerMiddleware(history)]
 
   /**
    * Redux-logger

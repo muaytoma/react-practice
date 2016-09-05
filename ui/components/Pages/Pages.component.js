@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react'
 import Page from '../Page/Page'
+import {Link} from 'react-router'
 
 const PagesList = ({pages, onReloadPages}) => {
   return (
@@ -7,6 +8,7 @@ const PagesList = ({pages, onReloadPages}) => {
       <button className='button' onClick={() => onReloadPages()}>
         Reload Pages
       </button>
+      <Link to={{ pathname: '/pages/new' }}>Create New Page</Link>
       <hr />
       <table className='table'>
         <thead>
