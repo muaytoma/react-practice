@@ -1,6 +1,6 @@
 import {ACTION_TYPES} from '../constants'
 
-const initialCustomers = []
+const initialCustomers = {}
 
 export default (state=initialCustomers, action) => {
   switch (action.type) {
