@@ -70,7 +70,7 @@ class GriddleContainer extends Component {
   render() {
     const {customers, enableInfiniteScroll} = this.props
     const columnsName = [
-      "id", "name"
+      "id", "name", "city", "state", "country", "company", "favoriteNumber"
     ]
     return (
       <Griddle useExternal={true} externalSetPage={this.setPage}
