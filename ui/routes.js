@@ -5,7 +5,8 @@ import {
   PagesContainer,
   ShowPageContainer,
   CreatePageContainer,
-  GriddleContainer
+  GriddleContainer,
+  ParcelContainer
 } from './containers'
 import {App, Home} from './components'
 
@@ -20,6 +21,7 @@ export default (store, history) => {
           <route path=':id' component={ShowPageContainer} />
         </route>
         <route path='/griddle' component={GriddleContainer} />
+        <route path='/parcels' component={ParcelContainer} />
       </Route>
     </Router>
   )

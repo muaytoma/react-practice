@@ -30,6 +30,13 @@ const Header = () => {
               </Link>
             </li>
             <li className={styles['menu__item']}>
+              <Link
+                to={{pathname: '/parcels'}}
+                className={styles['menu__link']}>
+                Parcels
+              </Link>
+            </li>
+            <li className={styles['menu__item']}>
               <a
                 href='#'
                 className={styles['menu__link']}>
