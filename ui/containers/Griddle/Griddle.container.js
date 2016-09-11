@@ -22,17 +22,14 @@ class GriddleContainer extends Component {
   }
 
   static propTypes = {
-    customers: PropTypes.shape({
-      count: PropTypes.number,
-      results: PropTypes.array
-    }).isRequired,
+    customers: PropTypes.array.isRequired,
     onLoadCustomers: PropTypes.func.isRequired,
     enableInfiniteScroll: PropTypes.bool
   }
 
   // what page is currently viewed
   setPage = (index) => {
-
+    console.log('Set Page..', index);
     index = index > this.state.maxPages ? this.state.maxPages : index < 1 ? 1 : index + 1;
     this.onLoadCustomers(index);
   }
@@ -58,9 +55,9 @@ class GriddleContainer extends Component {
     // A bit more logic might be needed here. More or less, Griddle will
     // only ever render what's being passed into it at any point.
     if (props.enableInfiniteScroll && this.state.results) {
-      newState.results = this.state.results.concat(props.customers.results);
+      newState.results = this.state.results.concat(props.customers);
     } else {
-      newState.results = props.customers.results;
+      newState.results = props.customers;
     }
 
     this.setState(newState)

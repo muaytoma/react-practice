@@ -58,9 +58,8 @@
       "displayName": "Favorite Number"
     }
   ],
-  "customers": {
-    "count": 201,
-    "results": [
+  "customers":
+  [
       {
         "id": 0,
         "name": "Mayer Leonard",
@@ -1871,5 +1870,4 @@
         "favoriteNumber": 9
       }
     ]
-  }
 }
