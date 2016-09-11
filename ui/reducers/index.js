@@ -2,13 +2,13 @@ import {combineReducers} from 'redux'
 import {reducer as formReducer} from 'redux-form'
 import { routerReducer } from 'react-router-redux'
 import pages from './pages'
-import parcels from './parcels'
+import parcelsData from './parcels'
 import customers from './customers'
 
 export default combineReducers({
   form: formReducer,
   routing: routerReducer,
   pages,
-  parcels,
+  parcelsData,
   customers
 })
